@@ -5,34 +5,21 @@
   </picture>
 </a>
 
-# Arcjet example app
+# Arcjet dynamic rate limit example
 
 [Arcjet](https://arcjet.com) helps developers protect their apps in just a few
-lines of code. This is an example application demonstrating the use of multiple
-features.
+lines of code. This is an example application demonstrating the use of dynamic
+rate limits with user configuration in a database.
 
-This example is deployed at
-[https://example.arcjet.com](https://example.arcjet.com).
+This is forked from the main [Arcjet example
+app](https://github.com/arcjet/arcjet-js-example).
 
 ## Features
 
-- [Signup form protection](https://example.arcjet.com/signup) uses Arcjet's
-  server-side email verification configured to block disposable providers and
-  ensure that the domain has a valid MX record. It also includes rate limiting
-  and bot protection to prevent automated abuse.
-- [Bot protection](https://example.arcjet.com/bots) shows how a page can be
-  protected from automated clients.
 - [Rate limiting](https://example.arcjet.com/rate-limiting) shows the use of
-  different rate limit configurations depending on the authenticated user. A
-  logged-in user can make more requests than an anonymous user.
-- [Attack protection](https://example.arcjet.com/attack) demonstrates Arcjet
-  Shield, which detects suspicious behavior, such as SQL injection and
-  cross-site scripting attacks.
-
-## Deploy it now
-
-[![Deploy with
-Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farcjet%2Farcjet-js-example&project-name=arcjet-example&repository-name=arcjet-example&developer-id=oac_1GEcKBuKBilVnjToj1QUwdb8&demo-title=Arcjet%20Example%20&demo-description=Example%20rate%20limiting%2C%20bot%20protection%2C%20email%20verification%20%26%20form%20protection.&demo-url=https%3A%2F%2Fgithub.com%2Farcjet%2Farcjet-js-example&demo-image=https%3A%2F%2Fapp.arcjet.com%2Fimg%2Fexample-apps%2Fvercel%2Fdemo-image.jpg&integration-ids=oac_1GEcKBuKBilVnjToj1QUwdb8&external-id=arcjet-js-example)
+  different rate limit configurations depending on the authenticated user.
+- [Dynamic rate limits](https://docs.arcjet.com/reference/nextjs#ad-hoc-rules)
+  using the value set in a SQLite database for each user.
 
 ## Run locally
 
@@ -44,27 +31,30 @@ Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=
 npm ci
 ```
 
-3. Rename `.env.local.example` to `.env.local` and add your Arcjet key. If you
-   want to test the rate limiting authentication, you will also need to add an
-   Auth.js secret and [create a GitHub OAuth
+3. Rename `.env.example` to `.env` and add your Arcjet key. Add an Auth.js
+   secret and [create a GitHub OAuth
    app](https://authjs.dev/guides/configuring-github).
 
-4. Start the dev server
+4. Bootstrap the database:
+
+```bash
+npm exec prisma migrate dev
+```
+
+5. Start the dev server
 
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Stack
 
 - Auth: [Auth.js](https://authjs.dev/)
 - App: [Next.js](https://nextjs.org/)
+- Database: [SQLite](https://www.sqlite.org/) using
+  [libsql](https://github.com/tursodatabase/libsql-client-ts)
 - UI: [shadcn/ui](https://ui.shadcn.com/)
-- Form handling: [React Hook Form](https://react-hook-form.com/) (see also [our
-  full form protection
-  example](https://github.com/arcjet/arcjet-js/tree/main/examples/nextjs-14-react-hook-form))
-- Client-side validation: [Zod](https://zod.dev/)
+- ORM: [Prisma](https://www.prisma.io/)
 - Security: [Arcjet](https://arcjet.com/)
-- Platform: [Vercel](https://vercel.com/) (see [our integration](https://vercel.com/integrations/arcjet))

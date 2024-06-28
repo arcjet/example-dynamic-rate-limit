@@ -13,18 +13,18 @@ const aj = arcjet.withRule(
   // scripting attacks. We want to ru nit on every request
   shield({
     mode: "LIVE", // will block requests. Use "DRY_RUN" to log only
-  })
+  }),
 );
 
 // Returns ad-hoc rules depending on whether the session is present. You could
 // inspect more details about the session to dynamically adjust the rate limit.
 function getClient(session: Session | null) {
-  // If the user is logged in then give them a higher rate limit
+  // If the user is logged in then give them the rate limit set in the session
   if (session?.user) {
     return aj.withRule(
       fixedWindow({
         mode: "LIVE",
-        max: 5,
+        max: session.user.apiLimit,
         window: "60s",
       }),
     );

@@ -1,15 +1,15 @@
 {
-  "name": "arcjet-js-example",
-  "description": "Arcjet JS example app. Arcjet helps developers protect their apps in just a few lines of code.",
+  "name": "example-dynamic-rate-limit",
+  "description": "Arcjet dynamic rate limit example. Arcjet helps developers protect their apps in just a few lines of code.",
   "license": "Apache-2.0",
   "homepage": "https://arcjet.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arcjet/arcjet-js-example.git",
+    "url": "git+https://github.com/arcjet/example-dynamic-rate-limit.git",
     "directory": "arcjet"
   },
   "bugs": {
-    "url": "https://github.com/arcjet/arcjet-js-example/issues",
+    "url": "https://github.com/arcjet/example-dynamic-rate-limit/issues",
     "email": "support@arcjet.com"
   },
   "author": {
@@ -30,7 +30,9 @@
   "dependencies": {
     "@arcjet/decorate": "^1.0.0-alpha.17",
     "@arcjet/next": "^1.0.0-alpha.17",
+    "@auth/prisma-adapter": "^2.4.1",
     "@hookform/resolvers": "^3.6.0",
+    "@prisma/client": "^5.16.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
@@ -43,8 +45,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -58,6 +59,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "postcss": "^8",
+    "prisma": "^5.16.1",
     "tailwindcss": "^3.4.4",
     "typescript": "^5"
   }

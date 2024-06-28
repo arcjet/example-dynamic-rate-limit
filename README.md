@@ -14,6 +14,11 @@ rate limits with user configuration in a database.
 This is forked from the main [Arcjet example
 app](https://github.com/arcjet/arcjet-js-example).
 
+## Video walkthrough
+
+[Watch the video walkthrough](https://www.youtube.com/watch?v=Nwr07VkL3QM) of
+this example on YouTube.
+
 ## Features
 
 - [Rate limiting](https://example.arcjet.com/rate-limiting) shows the use of

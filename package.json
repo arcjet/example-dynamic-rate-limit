@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@arcjet/decorate": "^1.0.0-alpha.17",
-    "@arcjet/next": "^1.0.0-alpha.17",
+    "@arcjet/next": "^1.0.0-alpha.18",
     "@auth/prisma-adapter": "^2.4.1",
     "@hookform/resolvers": "^3.6.0",
     "@prisma/client": "^5.16.1",

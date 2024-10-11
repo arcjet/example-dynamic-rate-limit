@@ -42,6 +42,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   callbacks: {
     session({ session, user }) {
+      // @ts-ignore: Auth.js type error bug: https://github.com/nextauthjs/next-auth/issues/11916
       session.user.apiLimit = user.apiLimit ?? 5;
       return session;
     },
